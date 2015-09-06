@@ -1,0 +1,1 @@
+<img id="bannerheader" src="/image/banner/webbanhang.jpg" class="img-responsive" alt="Image">
