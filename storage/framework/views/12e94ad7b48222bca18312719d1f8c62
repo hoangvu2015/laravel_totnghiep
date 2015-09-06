@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	<div ng-app="myApp">
+		<?php /* Hello
+		<input type="text" ng-model="name"><br/>
+		<span>{{ name }}</span> */ ?>
+	<?php /* 	<div ng-controller="DemoController">
+			<h4>The sinplest adding machine ever</h4>
+			<button type="button" ng-click = "add(1)">Add</button>
+			<button type="button" ng-click = "subtract(1)">Subtract</button>
+			<h4>Current count: {{ counter }}</h4>
+		</div>
+
+		<div ng-controller='myController'>
+			<h5>{{ clock }}</h5>
+			<input type="text" ng-model="person.name" placeholder="Enter your name">
+			{{ person.name }}
+		</div>
+		<br/><br/>
+		<div ng-controller="ParentController">
+			<div ng-controller="ChildController">
+				<input type="text" ng-model="person.name"><br/>
+				<a ng-click="sayHello()">click</a>
+			</div>
+			{{ person }}<br/>
+		</div>
+
+		<div ng-controller="PlayerController">
+
+			<button ng-click="play()" ng-show="!playing" type="button" >Play</button>
+			<button ng-click="stop()" ng-show="playing" type="button" >Stop</button>
+			Playing audio: <b>{{ playing }}</b>
+		</div> */ ?>
+
+	<div ng-controller="DemoCtrl">
+		<form name="formData">
+		<div>
+			<input name="name" type="text" ng-model="name" placeholder="Enter your name" required>
+			<span ng-show="submited&&formData.name.$error.required">Name invalid</span>
+		</div>
+		<div>
+			<input name="number" type="text" ng-model="number" placeholder="Enter your number" validate-required subm="submited">
+			<span ng-show="submited&&formData.number.$error.requireNumber">Number invalid</span>
+		</div>
+			
+			<button ng-click="submit()" type="button" >Submit</button>
+		</form>
+	</div>
+
+	</div>
+<script type="text/javascript"src="<?php echo e(asset('/bower_components/angular/angular.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('/js/test/main.js')); ?>"></script>
+</body>
+</html>

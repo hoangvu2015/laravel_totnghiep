@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $__env->yieldContent('title'); ?></title>
+
+	<link rel="stylesheet" type="text/css" href="/css/app.css"> <!-- <?php /* css rieng cua chung ta */ ?> -->
+	<?php echo $__env->yieldContent('head.css'); ?>
+</head>
+<body>
+
+	<?php echo $__env->make('fornlayouts.partials.navbartop', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1">
+			<?php echo $__env->make('fornlayouts.partials.bannerheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>	
+	</div>
+
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1">
+			<?php echo $__env->make('fornlayouts.partials.navbarmenutop', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>	
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-3 col-sm-offset-1">
+			<?php echo $__env->make('fornlayouts.partials.leftmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>	
+		
+			<?php echo $__env->yieldContent('body.content'); ?>
+		
+	</div>
+	
+<?php /* 	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1">
+			<?php echo $__env->make('fornlayouts.partials.navbarmenutop', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>	
+	</div> */ ?>
+	
+	<div  class="row">
+		<div id="footer_forn" class="col-sm-10 col-sm-offset-1">
+			<?php echo $__env->make('fornlayouts.partials.footer_forn', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>	
+	</div>
+			
+
+	<?php echo $__env->yieldContent('body.js'); ?>
+
+	<script type="text/javascript" src="<?php echo e(asset('bower_components/bootstrap/dist/js/bootstrap.js')); ?>"></script>
+	<script type="text/javascript" src="<?php echo e(asset('bower_components/bootstrap/dist/js/bootstrap.min.js')); ?>"></script>
+	<script type="text/javascript" src="<?php echo e(asset('bower_components/jquery/dist/jquery.min.js')); ?>"></script>
+
+</body>
+</html>

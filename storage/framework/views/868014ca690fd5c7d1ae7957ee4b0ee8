@@ -1,0 +1,72 @@
+<?php $__env->startSection('title'); ?>
+	Trang Index
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('body.content'); ?>
+
+
+		<h1 class="text-center">DANH SÁCH TIN TỨC</h1>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>				
+				<th>Hình Ảnh</th>
+				<th>Tiêu Đề</th>
+				<th>Tóm Tắc</th>
+				<th>Trạng Thái</th>
+				<th>Ngày Tạo</th>
+				<th>Ngày Sửa</th>
+				<th>Tác Vụ</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($article as $key): ?>
+				<tr>
+					<td><?php echo e($key->id); ?></td>					
+					<td><a href="<?php echo e(route('article.show',$key->id)); ?>"><img style="  width: 100px; height: 100px;" src="<?php echo e(URL::to('/image/'.$key->image)); ?>"></a></td>
+					<td><a href="<?php echo e(route('article.show',$key->id)); ?>"><?php echo e($key->name); ?></a></td>
+					<td><?php echo e($key->summary); ?></td>	
+					<td>
+						<?php if($key->status==0): ?>
+							<p>Đang ẩn</p>
+						<?php else: ?> 
+							<p>Đang Hiển thị</p>
+						<?php endif; ?>
+					</td>				
+					<td><?php echo e(date('d/m/yy h:m:s',strtotime($key->created_at))); ?></td>
+					<td><?php echo e(date('d/m/yy h:m:s',strtotime($key->updated_at))); ?></td>
+					<td>
+					<a class="btn btn-primary glyphicon glyphicon-refresh" href="<?php echo e(route('article.edit',$key->id)); ?>"></a>&nbsp&nbsp
+					<?php if($key->id !=1 && $key->id !=2): ?>
+						<?php echo Form::open([
+							'route'=>['article.destroy',$key->id],
+							'method'=>'DELETE',
+							'style'=>'display:inline;'
+
+						]); ?>
+
+						<button class="btn btn-danger glyphicon glyphicon-remove"></button>
+
+						<?php echo Form::close(); ?>
+
+					<?php endif; ?>
+					</td>
+				</tr> 
+
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+	
+
+<center>
+	<div class="row">
+		<div class="col-sm-7 col-sm-offset-3">
+			<?php echo $article->render(); ?>
+
+		</div>
+	</div>
+</center>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('adminlayouts.layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

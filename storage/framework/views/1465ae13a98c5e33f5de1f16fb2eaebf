@@ -1,0 +1,9 @@
+
+  
+
+ <?php $__env->startSection('body.content'); ?>
+	<center>
+		<h2><p>Xin Chào <b><?php echo e(\Auth::user()->name); ?></b> Đến Với Trang Quản Trị Admin !!!</p></h2>
+	</center>
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('adminlayouts.layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

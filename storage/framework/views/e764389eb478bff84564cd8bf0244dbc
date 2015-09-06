@@ -1,0 +1,26 @@
+
+
+<?php $__env->startSection('body.content'); ?>
+
+	<div class="col-sm-7">
+		<ol class="breadcrumb">
+			<li><a href ="\">Trang chủ</a></li>
+			<li><a href ="<?php echo e(route('index.show_all_article')); ?>">Tin tức</a></li>
+			<li class   ="active">Chi tiết tin tức</li>
+		</ol>
+		
+			<h3><?php echo e($showArticle->name); ?></h3>
+			<p style="font-size: 13px">Cập nhật: <?php echo e($showArticle->updated_at); ?></p>
+			<?php
+				echo $showArticle->content;
+			?>
+		
+	</div>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('body.js'); ?>
+	
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('fornlayouts.layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

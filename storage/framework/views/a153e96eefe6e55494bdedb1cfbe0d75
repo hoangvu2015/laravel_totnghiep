@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<?php echo Form::open([
+			'route'=>'demo.store',
+			'method'=>'POST',
+			
+		]); ?>
+
+		<?php echo Form::label('name', 'Name'); ?>
+
+		<?php echo Form::text('name',null); ?><br/>
+
+		<?php echo Form::label('parent', 'Parent'); ?>
+
+
+		<?php echo Form::select('parent', ['0'=>'Home',$demo]); ?><br/>
+		<?php echo Form::submit('Add'); ?><br/>
+	<?php echo Form::close(); ?>
+
+</body>
+</html>

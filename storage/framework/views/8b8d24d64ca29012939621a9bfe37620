@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $__env->yieldContent('title'); ?></title>
+
+
+
+	
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/app.css"> <!-- <?php /* css rieng cua chung ta */ ?> -->
+	<?php echo $__env->yieldContent('head.css'); ?>
+</head>
+<body>
+
+	<?php echo $__env->make('adminlayouts.partials.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="row">
+	
+		<div class="col-sm-3">
+			<?php echo $__env->make('adminlayouts.partials.leftmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+
+		<div class="col-sm-7">
+			<?php echo $__env->yieldContent('body.content'); ?>
+		</div>
+
+	</div>
+
+
+	<?php echo $__env->make('adminlayouts.partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	<?php echo $__env->yieldContent('body.js'); ?>
+	
+	<script type="text/javascript" src="<?php echo e(asset('/bower_components/bootstrap/dist/js/bootstrap.min.js')); ?>"></script>
+	
+	<script type="text/javascript" src="<?php echo e(asset('/bower_components/jquery/dist/jquery.min.js')); ?>"></script>
+	
+	<script type="text/javascript" src="<?php echo e(asset('/bower_components/bootstrap/dist/js/bootstrap.js')); ?>"></script>
+	
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/bower_components/bootstrap/dist/css/bootstrap.min.css')); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/css/app.css')); ?>">
+</body>
+</html>

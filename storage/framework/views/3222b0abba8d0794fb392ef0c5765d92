@@ -1,0 +1,32 @@
+<?php $__env->startSection('head.title'); ?>
+	Danh sách bài viết.
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('body.content'); ?>
+
+<?php /* NOI DUNG */ ?>
+
+	<div class="container">
+	<?php foreach($articles as $key): ?>
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3"> <?php /* lay 6 cot va cach 3 cot ben trai */ ?>
+				<h2><?php echo e($key->title); ?></h2>
+				<p><?php echo e($key->content); ?></p>
+				<p><a href="<?php echo e(route('article.show',$key->id)); ?>">Read more</a></p>
+			</div>
+		</div>
+	<?php endforeach; ?>
+		
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+		<?php /* ham phan trag trong laravel */ ?>
+			
+			<?php echo $articles->render(); ?> 
+		
+		</div>
+	</div>
+
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<ul>
+	<?php foreach($allDemo as $key=>$demo): ?>
+		<li>
+		   <a href="<?php echo e(route('demo.add')); ?>"><?php echo e($demo['name']); ?></a> 
+
+		    <?php if(isset($demo['sub'])): ?>
+			    <ul>
+					<?php echo $__env->make('_demo_iteam', array('items' => $demo['sub']), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			    </ul>
+		    <?php endif; ?>
+		</li>
+	<?php endforeach; ?>
+</ul>
+
+</body>
+</html>

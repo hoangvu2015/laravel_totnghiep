@@ -1,0 +1,27 @@
+ 
+
+<?php $__env->startSection('body.content'); ?>
+	<div class="col-sm-7">
+	<ol class="breadcrumb">
+	  <li><a href ="\">Trang Chủ</a></li>
+	  <li><a href ="<?php echo e(route('contact.create')); ?>">Liên Hệ</a></li>
+	  <li class="active">Liên Hệ Thành Công</li>
+	</ol>
+	<center>
+		<h1>LIÊN HỆ THÀNH CÔNG</h1>
+		<p>Bạn đã gửi liên hệ thành công !!</p>
+		<p>Chúng Tôi sẽ liên hệ bạn sớm nhất có thể, xin cảm ơn bạn !!!</p>
+	</center>
+		
+	</div><!--div col-sm-7-->
+
+<?php $__env->stopSection(); ?>
+
+
+			
+
+<?php $__env->startSection('body.js'); ?>
+	
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('fornlayouts.layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

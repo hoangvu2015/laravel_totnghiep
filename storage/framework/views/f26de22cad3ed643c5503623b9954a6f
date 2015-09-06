@@ -1,0 +1,51 @@
+
+
+<?php $__env->startSection('body.content'); ?>
+
+	<div class="col-sm-7">
+		<ol class="breadcrumb">
+			<li><a href ="\">Trang chủ</a></li>
+			<li class   ="active"><?php echo e($nameCategory); ?></li>
+		</ol>
+		
+		<?php /* San Pham Theo Loai */ ?>
+		<ul id="nav_category_new" class="nav nav-tabs">
+	  		<li class="active"><a data-toggle="tab" href="#category_product"><?php echo e($nameCategory); ?></a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="category_product" class="tab-pane fade in active">
+				<br/>
+				<div class="row">
+				
+					<div class="row">
+						<?php foreach($category_product as $value): ?>
+							<div class="col-xs-6 col-md-3">
+								<a href="<?php echo e(route('index.showproduct',$value['id'])); ?>" class="thumbnail">
+								<img src="/image/<?php echo e($value['image']); ?>" alt="...">
+								</a>
+								<center>
+							      <div class="caption">
+							        <a href="<?php echo e(route('index.showproduct',$value['id'])); ?>"><h4><?php echo e($value['name']); ?></h4></a>
+							        <p><?php echo e(number_format($value['price'],0,',','.')); ?>  <b>VNĐ</b> </p>
+							        <p><a href="/cart/add/<?php echo e($value['id']); ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart"></span><b> Mua</b></a></p>
+							      </div>
+						     	 </center>
+							</div>
+						
+						<?php endforeach; ?>
+						
+					</div>
+
+				</div>
+			</div>
+		</div><!--tab-content-->
+
+	</div>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('body.js'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('fornlayouts.layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

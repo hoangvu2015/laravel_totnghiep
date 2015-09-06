@@ -1,0 +1,18 @@
+	
+
+	<div class="form-group">
+		<h3><?php echo Form::label('name', 'Tên PT',['class'=>'label label-default']); ?></h3>
+		<?php echo Form::text('name',null,['id'=>'title','class'=>'form-control','placeholder'=>'Tên PT']); ?>
+
+	</div>
+
+	<div class="form-group">
+		<h3><?php echo Form::label('price', 'Giá',['class'=>'label label-default']); ?></h3>
+		<?php echo Form::text('price',null,['id'=>'title','class'=>'form-control','placeholder'=>'VNĐ']); ?>
+
+	</div>
+
+	<div class="form-group">
+		<?php echo Form::submit($button_name,['class'=>'btn btn-primary']); ?>
+
+	</div>

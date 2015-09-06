@@ -1,0 +1,127 @@
+
+<ul class="nav nav-pills nav-stacked">
+		<li role="presentation" class="active"><a href="<?php echo e(route('index.showbycategory',0)); ?>">MỤC SẢN PHẨM</a></li>
+		<?php $i=0;?>
+		<?php foreach($allMenu as $key=>$menu): ?>
+		<li role="presentation" data-toggle="collapse" data-target="#collapse<?php echo e($i); ?>" aria-expanded="false" aria-controls="collapse<?php echo e($i); ?>">
+		   <a><?php echo e($menu['name']); ?> <span class="caret"></span></a>
+
+		    <?php if(isset($menu['sub'])): ?>
+			    <ul class="nav nav-pills nav-stacked collapse" id="collapse<?php echo e($i); ?>">
+					<?php echo $__env->make('fornlayouts.partials._leftmenu', array('items' => $menu['sub'],'text'=>'   - '), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			    </ul>
+		    <?php endif; ?>
+
+		</li>
+		<?php $i++;?>
+		<?php endforeach; ?>
+</ul>
+
+<?php /* Sản Phẩm Bán Chạy */ ?>
+	<div class="panel panel-primary">
+
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Sản Phẩm Hot</h3>
+	  </div>
+
+	  <div class="panel-body">
+	   		
+			<div id="myCarousel1" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+				<?php for($i=1; $i<count($hotProduct); $i++): ?>
+					<li data-target="#myCarousel1" data-slide-to="<?php echo e($i); ?>"></li>
+				<?php endfor; ?>
+				</ol>
+				
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<?php $i=0;?>
+					<?php foreach($hotProduct as $key): ?>
+					
+						<?php if($i==0): ?>
+							<div class="item active">
+						<?php else: ?> 
+							<div class="item">
+						<?php endif; ?>
+								<img class="image-carousel-detail" src="/image/<?php echo e($key->image); ?>" alt="Chania">
+								<div class="carousel-caption">
+							        <h3><a class="a-left" href="<?php echo e(route('index.showproduct',$key->id)); ?>"><?php echo e($key->name); ?></a></h3>
+							        <h4><b>Giá: </b><?php echo e(number_format($key->price,0,',','.')); ?> VNĐ</h4>
+							         <p><a href="/cart/add/<?php echo e($key->id); ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart"></span><b> Mua</b></a></p>
+						     	</div>
+						</div>
+						<?php $i=1;?>
+					
+					<?php endforeach; ?>
+				</div>
+				
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div><!--div carousel-->
+		
+	  </div><!--div body panner-->
+
+	</div><!--div panner-->
+
+<?php /* Sản Phẩm Khuyến mãi */ ?>
+	<div class="panel panel-primary">
+
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Sản Phẩm Khuyến Mãi</h3>
+	  </div>
+
+	  <div class="panel-body">
+	   		
+			<div id="myCarousel-Khuyenmai" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel-Khuyenmai" data-slide-to="0" class="active"></li>
+				<?php for($i=1; $i<count($discountProduct); $i++): ?>
+					<li data-target="#myCarousel-Khuyenmai" data-slide-to="<?php echo e($i); ?>"></li>
+				<?php endfor; ?>
+				</ol>
+				
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<?php $i=0;?>
+					<?php foreach($discountProduct as $key): ?>
+					<?php if($i==0): ?>
+						<div class="item active">
+					<?php else: ?> 
+						<div class="item">
+					<?php endif; ?>
+							<img class="image-carousel-detail" src="/image/<?php echo e($key->image); ?>" alt="Chania">
+							<div class="carousel-caption">
+						        <h3><a class="a-left" href="<?php echo e(route('index.showproduct',$key->id)); ?>"><?php echo e($key->name); ?></a></h3>
+						        <h4><b>Giá: </b><?php echo e(number_format($key->price,0,',','.')); ?> VNĐ</h4>
+						         <p><a href="/cart/add/<?php echo e($key->id); ?>" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart"></span><b> Mua</b></a></p>
+					     	</div>
+					</div>
+					<?php $i=1;?>
+					<?php endforeach; ?>
+				</div>
+				
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel-Khuyenmai" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel-Khuyenmai" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div><!--div carousel-->
+	  </div><!--div body panner-->
+
+	</div><!--div panner-->

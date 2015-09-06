@@ -1,0 +1,19 @@
+<?php $i=0;?>
+
+<?php foreach($items as $item): ?>
+
+<li role="presentation">
+     <a href="<?php echo e(route('index.showbycategory',$item['id'])); ?>" data-toggle="collapse" data-target="#<?php echo e($i); ?>" aria-expanded="false" aria-controls="<?php echo e($i); ?>"><?php echo e($text); ?><?php echo e($item['name']); ?></a> 
+
+    <?php if(isset($item['sub'])): ?>
+    	<ul class="nav nav-pills nav-stacked collapse" id="<?php echo e($i); ?>">
+    		<?php echo $__env->make('fornlayouts.partials._leftmenu', array('items' => $item['sub'],'text'=>'    - '.$text), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    	</ul>
+    <?php endif; ?>
+</li>
+
+<?php endforeach; ?>
+<?php $i++;?>
+
+
+
