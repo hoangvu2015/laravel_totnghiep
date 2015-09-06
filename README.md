@@ -21,3 +21,24 @@ Thank you for considering contributing to the Laravel framework! The contributio
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+###file .env
+
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=RapmTlRyNthZtIPMzGaFSh47e3Hha9FT
+
+DB_HOST=localhost
+DB_DATABASE=laravel_totnghiep
+DB_USERNAME=root
+DB_PASSWORD=null
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=test.demo.laravel@gmail.com
+MAIL_PASSWORD=87654321
